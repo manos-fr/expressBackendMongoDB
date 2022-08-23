@@ -1,15 +1,13 @@
 const App = require('../model/app.model.js');
 
 exports.findAll = (req, res) => {
-  App.titles
-    .find()
+  App.find()
     .then((data) => {
-      res.send(data);
+      res.send({ rows: data });
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || 'Some error occurred while retrieving messages.',
+        message: err.message || 'Some error occurred while retrieving titles.',
       });
     });
 };
@@ -25,8 +23,7 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message:
-          err.message || 'Some error occurred while creating the Message.',
+        message: err.message || 'Some error occurred while creating the title.',
       });
     });
 };
