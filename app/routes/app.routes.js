@@ -3,11 +3,11 @@ module.exports = (app) => {
 
   app.get('/titles', App.findAll);
 
+  app.get('/titles/:id', App.findOne);
+
   app.post('/titles', App.create);
 
-  app.get('/titles/:titleId', App.findOne);
+  app.put('/titles/:id', App.update);
 
-  app.put('/titles/:titleId', App.update);
-
-  app.delete('/titles/:titleId', App.delete);
+  app.delete('/titles/:id', App.delete);
 };

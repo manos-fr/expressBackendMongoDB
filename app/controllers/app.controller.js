@@ -13,13 +13,11 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  const body = new App({
-    body: req.body,
-  });
+  const body = new App(req.body);
   body
     .save()
     .then((data) => {
-      res.send(data);
+      res.send({ rows: data });
     })
     .catch((err) => {
       res.status(500).send({
@@ -29,61 +27,65 @@ exports.create = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-  App.findById(req.params.titleId)
+  App.find({ tconst: req.params.id })
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: 'Title not found with id ' + req.params.titleId,
+          message: 'Title not found with id ' + req.params.id,
         });
       }
-      res.send(data);
+      res.send({ rows: data });
     })
     .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Title not found with id ' + req.params.titleId,
+          message: 'Title not found with _id ',
+        });
+      } else {
+        return res.status(500).send({
+          message: 'Error retrieving title with id ' + req.params.id,
         });
       }
-      return res.status(500).send({
-        message: 'Error retrieving title with id ' + req.params.titleId,
-      });
     });
 };
 
 exports.update = (req, res) => {
-  App.findByIdAndUpdate(
-    req.params.titleId,
+  App.updateOne(
+    { tconst: req.params.id },
     {
-      body: req.body,
+      genres: req.body.genres,
+      originalTitle: req.body.originalTitle,
+      startYear: req.body.startYear,
     },
     { new: true }
   )
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: 'Title not found with id ' + req.params.titleId,
+          message: 'Title not found with id ' + req.params.id,
         });
       }
-      res.send(data);
+      res.send({ rows: data });
     })
     .catch((err) => {
       if (err.kind === 'ObjectId') {
         return res.status(404).send({
-          message: 'Title not found with id ' + req.params.titleId,
+          message: 'Title not found with _id',
+        });
+      } else {
+        return res.status(500).send({
+          message: 'Error updating title with id ' + req.params.id,
         });
       }
-      return res.status(500).send({
-        message: 'Error updating title with id ' + req.params.titleId,
-      });
     });
 };
 
 exports.delete = (req, res) => {
-  App.findByIdAndRemove(req.params.titleId)
+  App.findOneAndRemove({ tconst: req.params.id })
     .then((data) => {
       if (!data) {
         return res.status(404).send({
-          message: 'Title not found with id ' + req.params.titleId,
+          message: 'Title not found with id ' + req.params.id,
         });
       }
       res.send({ message: 'Title deleted successfully!' });
@@ -91,11 +93,12 @@ exports.delete = (req, res) => {
     .catch((err) => {
       if (err.kind === 'ObjectId' || err.name === 'NotFound') {
         return res.status(404).send({
-          message: 'Title not found with id ' + req.params.titleId,
+          message: 'Title not found with _id',
+        });
+      } else {
+        return res.status(500).send({
+          message: 'Could not delete title with id ' + req.params.id,
         });
       }
-      return res.status(500).send({
-        message: 'Could not delete title with id ' + req.params.titleId,
-      });
     });
 };
