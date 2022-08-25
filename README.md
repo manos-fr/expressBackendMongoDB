@@ -31,3 +31,7 @@ To start the express server, run the following.
 ```bash
 npm start
 ```
+
+## Note
+
+- Must create the mongoDB "movies" database and "titles" collection locally. Further instructions will be documented
