@@ -8,14 +8,14 @@ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/ License
 
 - Server Hostname: 127.0.0.1
 - Server Port: 3000
-- ##### Document Length: 2036349 bytes
-- ##### Concurrency Level: 10
-- ##### Time taken for tests: 10.313 seconds
-- ##### Complete requests: 76
+- #### Document Length: 2036349 bytes
+- #### Concurrency Level: 10
+- #### Time taken for tests: 10.313 seconds
+- #### Complete requests: 76
 - Failed requests: 0
 - Total transferred: 155566400 bytes
 - HTML transferred: 155546808 bytes
-- ##### Requests per second: 7.37 [#/sec] (mean)
+- #### Requests per second: 7.37 [#/sec] (mean)
 - Time per request: 1356.986 [ms] (mean)
 - Time per request: 135.699 [ms] (mean, across all concurrent requests)
 - Transfer rate: 14730.82 [Kbytes/sec] received
