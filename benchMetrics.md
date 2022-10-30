@@ -1,11 +1,6 @@
 ## GET
 
-### This is ApacheBench, Version 2.3 <$Revision: 1901567 $>
-
-Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
-Licensed to The Apache Software Foundation, http://www.apache.org/
-
-Benchmarking 127.0.0.1 (be patient)
+### This is ApacheBench, Version 2.3 <$Revision: 1901567 $> Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 - Finished 76 requests
 
