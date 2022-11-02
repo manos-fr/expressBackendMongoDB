@@ -8,14 +8,14 @@ Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/ License
 
 - Server Hostname: 127.0.0.1
 - Server Port: 3000
-- #### Document Length: 2036349 bytes
-- #### Concurrency Level: 10
-- #### Time taken for tests: 10.313 seconds
-- #### Complete requests: 76
+- **Document Length: 2036349 bytes**
+- **Concurrency Level: 10**
+- **Time taken for tests: 10.313 seconds**
+- **Complete requests: 76**
 - Failed requests: 0
 - Total transferred: 155566400 bytes
 - HTML transferred: 155546808 bytes
-- #### Requests per second: 7.37 [#/sec] (mean)
+- **Requests per second: 7.37 [#/sec] (mean)**
 - Time per request: 1356.986 [ms] (mean)
 - Time per request: 135.699 [ms] (mean, across all concurrent requests)
 - Transfer rate: 14730.82 [Kbytes/sec] received
@@ -45,15 +45,15 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 - Server Hostname: 127.0.0.1
 - Server Port: 3000
-- #### Document Length: 137 bytes
-- #### Concurrency Level: 10
-- #### Time taken for tests: 10.950 seconds
-- #### Complete requests: 16356
+- **Document Length: 137 bytes**
+- **Concurrency Level: 10**
+- **Time taken for tests: 10.950 seconds**
+- **Complete requests: 16356**
 - Failed requests: 0
 - Total transferred: 6166212 bytes
 - Total body sent: 4154678
 - HTML transferred: 2240772 bytes
-- #### Requests per second: 1493.68 [#/sec] (mean)
+- **Requests per second: 1493.68 [#/sec] (mean)**
 - Time per request: 6.695 [ms] (mean)
 - Time per request: 0.669 [ms] (mean, across all concurrent requests)
 
@@ -88,16 +88,16 @@ Licensed to The Apache Software Foundation, http://www.apache.org/
 
 - Server Hostname: 127.0.0.1
 - Server Port: 3000
-- #### Document Path: /titles/tt0496196
-- #### Document Length: 101 bytes
-- #### Concurrency Level: 10
-- #### Time taken for tests: 10.220 seconds
-- #### Complete requests: 16353
+- **Document Path: /titles/tt0496196**
+- **Document Length: 101 bytes**
+- **Concurrency Level: 10**
+- **Time taken for tests: 10.220 seconds**
+- **Complete requests: 16353**
 - Failed requests: 0
 - Total transferred: 5576373 bytes
 - Total body sent: 3696456
 - HTML transferred: 1651653 bytes
-- #### Requests per second: 1600.17 [#/sec] (mean)
+- **Requests per second: 1600.17 [#/sec] (mean)**
 - Time per request: 6.249 [ms] (mean)
 - Time per request: 0.625 [ms] (mean, across all concurrent requests)
 
