@@ -1,4 +1,5 @@
 const App = require('../model/app.model.js');
+const fs = require('fs');
 
 exports.findAll = (req, res) => {
   App.find()
@@ -49,35 +50,31 @@ exports.findOne = (req, res) => {
     });
 };
 
-exports.update = (req, res) => {
-  App.updateOne(
-    { tconst: req.params.id },
-    {
-      genres: req.body.genres,
-      originalTitle: req.body.originalTitle,
-      startYear: req.body.startYear,
-    },
-    { new: true }
-  )
-    .then((data) => {
-      if (!data) {
-        return res.status(404).send({
-          message: 'Title not found with id ' + req.params.id,
-        });
-      }
-      res.send({ rows: data });
-    })
-    .catch((err) => {
-      if (err.kind === 'ObjectId') {
-        return res.status(404).send({
-          message: 'Title not found with _id',
-        });
-      } else {
-        return res.status(500).send({
-          message: 'Error updating title with id ' + req.params.id,
-        });
-      }
-    });
+exports.update = async (req, res) => {
+  try {
+    const startDb = performance.now();
+    const data = await App.updateOne(
+      { tconst: req.params.id },
+      {
+        genres: req.body.genres,
+        originalTitle: req.body.originalTitle,
+        startYear: req.body.startYear,
+      },
+      { new: true }
+      )
+    const endDb = performance.now();
+    res.send({ rows: data });
+    const endRequest = performance.now();
+    try {
+      fs.appendFile('app/results.txt', `db: ${endDb-startDb} totRequest: ${endRequest-startDb}\n`, (err)=>{});
+    } catch (err) {
+      console.error(err);
+    }
+  } catch (error) {
+    return res.status(500).send({
+            message: 'Error updating title with id ' + req.params.id,
+          }); 
+  }
 };
 
 exports.delete = (req, res) => {

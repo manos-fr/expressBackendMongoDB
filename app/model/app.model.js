@@ -2,15 +2,15 @@ const mongoose = require('mongoose');
 
 const AppSchema = mongoose.Schema(
   {
-    tconst: String,
-    titleType: String,
-    primarytitle: String,
-    originalTitle: String,
-    isAdult: Number,
-    startYear: Number,
-    endyear: Number,
-    runtimeminutes: Number,
-    genres: String,
+    tconst: Object,
+    titleType: Object,
+    primarytitle: Object,
+    originalTitle: Object,
+    isAdult: Object,
+    startYear: Object,
+    endyear: Object,
+    runtimeminutes: Object,
+    genres: Object,
   },
   {
     collection: 'titles',
